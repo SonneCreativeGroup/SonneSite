@@ -1,0 +1,1 @@
+require_once(SS\CLASSES.'class.sonnesite.php');

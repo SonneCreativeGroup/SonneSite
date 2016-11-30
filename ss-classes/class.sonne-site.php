@@ -17,46 +17,56 @@ class SonneException extends Exception
 
 class SonneSite {
 	
+	protected $dbhost;
+	protected $dbuser;
+	protected $dbpass;
+	protected $dbname;
 	public $sid;
-	public $db;
+	public $sdb;
 	public $debug = false;
+	public $pageName;
 	public $sMail;
-	
-	public function sonneSigh($errno, $errstr) {
-		  echo "<b>Error:</b> [$errno] $errstr<br>";
-	}
-	public function sonneGrunt($errno, $errstr) {
-		  echo "<b>Error:</b> [$errno] $errstr<br>";
-		  echo "Ending Script";
-		  die();
+	public function __construct($dbhost,$dbuser,$dbpass,$dbname){
+	// GET PAGE NAME
+		$this->pageName = $_GET['url'];
+		if($this->pageName == ''){
+			if(is_dir(SS_ROOT.'ss-install')){
+				header('location:'.SS_FACADE.'ss-install/install.php');
+			}
+			$this->pageName = 'home';
+		}
+		
+		if($this->pageName != 'ss-install/inc/test-mod-rewrite'){
+			$this->dbhost = $dbhost;
+			$this->dbuser = $dbuser;
+			$this->dbpass = $dbpass;
+			$this->dbname = $dbname;
+			$this->db = new MysqliDB($this->dbhost,$this->dbuser,$this->dbpass,$this->dbname);
+			if($this->db->connect()){
+				// GET SESSION ID
+					$sid = $_SESSION['sid'];
+					if($sid == ''){
+						$sid = sha1($_SERVER['REMOTE_ADDR'].'-'.date("Ymdgis"));
+						$debugStr .= "session initiated<br>";
+						$_SESSION['sid'] = $sid;
+					}
+				// GET PAGE INFO
+					$this->page = $this->db
+						->where('page_name',$this->pageName)
+						->get('scgss_pages');
+			}else{
+				die('could not connect to database');
+			}
+		}else{
+			include(SS_ROOT.$this->pageName.'.php');
+		}
 	}
 	
 	public function wakeup(){
 		
-		// GET SESSION ID
-			$sid = $_SESSION['sid'];
-			if($sid == ''){
-				$sid = sha1($_SERVER['REMOTE_ADDR'].'-'.date("Ymdgis"));
-				$debugStr .= "session initiated<br>";
-				$_SESSION['sid'] = $sid;
-			}
-		
-		// LOAD DATABASE
-			if($db = new MysqliDB(DB_HOST ,DB_USER, DB_PASS, DB_NAME)){
-			}else{
-				if(is_dir('ss-install')){
-					header('location:'.SS_FACADE.'ss-install/install.php');
-				}
-			}
-		
 	}
 	
 	public function getPage(){
-		
-		$this->pageName = $_GET['url'];
-		if($this->pageName == ''){
-			$this->pageName = '';
-		}
 		return $this->pageName;
 	}
 

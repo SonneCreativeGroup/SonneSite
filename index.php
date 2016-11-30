@@ -9,8 +9,8 @@ require("ss-classes/class.sonne-site.php");
 	version 1.0
 	Copyright (c) 2016
 */
-$_SS = new SonneSite;
-SonneSite::wakeup();
+$_SS = new SonneSite(SS_DBH ,SS_DBU, SS_DBP, SS_DBN);
+$_SS->wakeup();
 /*
 	Andrew J Becker <Andrew.Becker@SonneCreativeGroup.com>
 	Sonne Creative Group, LLC.

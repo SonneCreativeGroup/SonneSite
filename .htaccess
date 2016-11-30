@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+
+    # Tell PHP that the mod_rewrite module is ENABLED.
+    SetEnv HTTP_MOD_REWRITE On
+
+    RewriteEngine on
+    RewriteBase /
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([A-Za-z0-9_\-\/]+)/?$ index.php?url=$1 [QSA,L]
+	
+</IfModule>

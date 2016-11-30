@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="class.phpmaileroauth.php" server="166.62.119.141/httpdocs/" local="131200022095918144" remote="131200053600000000" Dst="0" />
+<file name="class.phpmaileroauthgoogle.php" server="166.62.119.141/httpdocs/" local="131200022096278164" remote="131200053600000000" Dst="0" />
+<file name="class.pop3.php" server="166.62.119.141/httpdocs/" local="131200022096708189" remote="131200053600000000" Dst="0" />
+<file name="class.phpmailer.php" server="166.62.119.141/httpdocs/" local="131200022095448117" remote="131200053600000000" Dst="0" />
+<file name="class.smtp.php" server="166.62.119.141/httpdocs/" local="131200022097238219" remote="131200053600000000" Dst="0" />
+<file name="composer.json" server="166.62.119.141/httpdocs/" local="131200022097508234" remote="131200053600000000" Dst="0" />
+<file name="composer.lock" server="166.62.119.141/httpdocs/" local="131200022097768249" remote="131200053600000000" Dst="0" />
+<file name="get_oauth_token.php" server="166.62.119.141/httpdocs/" local="131200022098308280" remote="131200053600000000" Dst="0" />
+<file name="PHPMailerAutoload.php" server="166.62.119.141/httpdocs/" local="131200022093748019" remote="131200053600000000" Dst="0" />
+<file name="LICENSE" server="166.62.119.141/httpdocs/" local="131200022093237990" remote="131200053600000000" Dst="0" />
+<file name="VERSION" server="166.62.119.141/httpdocs/" local="131200022094288050" remote="131200053600000000" Dst="0" />
+<file name="class.phpmaileroauth.php" server="63.143.55.18/www/" local="131232481155316000" remote="131247079800000000" Dst="0" />
+<file name="class.phpmaileroauthgoogle.php" server="63.143.55.18/www/" local="131232481163642000" remote="131247079800000000" Dst="0" />
+<file name="class.phpmailer.php" server="63.143.55.18/www/" local="131232481143422000" remote="131247079800000000" Dst="0" />
+<file name="class.pop3.php" server="63.143.55.18/www/" local="131232481170212000" remote="131247079800000000" Dst="0" />
+<file name="class.smtp.php" server="63.143.55.18/www/" local="131246998316736000" remote="131247079800000000" Dst="0" />
+<file name="composer.json" server="63.143.55.18/www/" local="131232481196306000" remote="131247079800000000" Dst="0" />
+<file name="composer.lock" server="63.143.55.18/www/" local="131232481202450000" remote="131247079800000000" Dst="0" />
+<file name="get_oauth_token.php" server="63.143.55.18/www/" local="131246998307356000" remote="131247079800000000" Dst="0" />
+<file name="PHPMailerAutoload.php" server="63.143.55.18/www/" local="131232481131378000" remote="131247079800000000" Dst="0" />
+<file name="LICENSE" server="63.143.55.18/www/" local="131232481123594000" remote="131247079800000000" Dst="0" />
+<file name="VERSION" server="63.143.55.18/www/" local="131232481135462000" remote="131247079800000000" Dst="0" />
+<file name="class.phpmaileroauth.php" server="74.63.251.59/www/" local="131232481155316000" remote="131247018000000000" Dst="0" />
+<file name="class.phpmailer.php" server="74.63.251.59/www/" local="131232481143422000" remote="131247018000000000" Dst="0" />
+<file name="class.pop3.php" server="74.63.251.59/www/" local="131232481170212000" remote="131247018000000000" Dst="0" />
+<file name="class.phpmaileroauthgoogle.php" server="74.63.251.59/www/" local="131232481163642000" remote="131247018000000000" Dst="0" />
+<file name="class.smtp.php" server="74.63.251.59/www/" local="131246998316736000" remote="131247018000000000" Dst="0" />
+<file name="composer.json" server="74.63.251.59/www/" local="131232481196306000" remote="131247018000000000" Dst="0" />
+<file name="composer.lock" server="74.63.251.59/www/" local="131232481202450000" remote="131247018000000000" Dst="0" />
+<file name="get_oauth_token.php" server="74.63.251.59/www/" local="131246998307356000" remote="131247018000000000" Dst="0" />
+<file name="PHPMailerAutoload.php" server="74.63.251.59/www/" local="131232481131378000" remote="131247018000000000" Dst="0" />
+<file name="LICENSE" server="74.63.251.59/www/" local="131232481123594000" remote="131247018000000000" Dst="0" />
+<file name="VERSION" server="74.63.251.59/www/" local="131232481135462000" remote="131247018000000000" Dst="0" />
+</dwsync>

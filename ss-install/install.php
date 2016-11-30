@@ -4,13 +4,13 @@
 **************************************************************
 	version 1.0
 	Copyright (c) 2016
-	
+
 	Andrew J Becker <Andrew.Becker@SonneCreativeGroup.com>
 	Sonne Creative Group, LLC.
 	http://www.SonneCreativeGroup.com/SonneSite/overview
 
 	Bethany - My daughter, My soul, My life ♥ I love you
-	
+
 **************************************************************
 * Installation
 *************************************************************/
@@ -49,12 +49,12 @@ require('inc/functions.php');
 					</div>
 				</div>
 				<ul class="list-group">
-					<li class="list-group-item <?=(PHP_VERSION_ID >= 50200 ? 'list-group-item-success' : 'list-group-item-danger');?>">
-						<b class="fa <?=(PHP_VERSION_ID >= 50200 ? 'fa-check' : 'fa-remove');?> fa-2x pull-left"></b>
-						<b>PHP Version 5.2 or higher.</b><br />
+					<li class="list-group-item <?=(PHP_VERSION_ID >= 50300 ? 'list-group-item-success' : 'list-group-item-danger');?>">
+						<b class="fa <?=(PHP_VERSION_ID >= 50300 ? 'fa-check' : 'fa-remove');?> fa-2x pull-left"></b>
+						<b>PHP Version 5.3 or higher.</b><br />
 						<i>You are currently running version <?=phpversion();?></i>
 						<?
-						if(PHP_VERSION_ID < 50200){$reqErr = true;}
+						if(PHP_VERSION_ID < 50300){$reqErr = true;}
 						?>
 					</li>
 					<li class="list-group-item <?=(function_exists('mysqli_connect') ? 'list-group-item-success' : 'list-group-item-danger');?>">
@@ -65,11 +65,15 @@ require('inc/functions.php');
 						if(!function_exists('mysqli_connect')){$reqErr = true;}
 							?>
 					</li>
-					<li class="list-group-item <?=(is_mod_rewrite_enabled() ? 'list-group-item-success' : 'list-group-item-danger');?>">
-						<b class="fa <?=(is_mod_rewrite_enabled() ? 'fa-check' : 'fa-remove');?> fa-2x pull-left"></b>
+					<?
+					$mod=is_mod_rewrite_enabled();
+					?>
+					<li class="list-group-item <?=($mod == 'SonneSite' ? 'list-group-item-success' : 'list-group-item-danger');?>">
+						<b class="fa <?=($mod == 'SonneSite' ? 'fa-check' : 'fa-remove');?> fa-2x pull-left"></b>
 						<b>MOD_REWRITE</b><br />
 						<?
-						if(!is_mod_rewrite_enabled()){$reqErr = true;}
+						echo $mod."<br />";
+						if($mod != 'SonneSite'){$reqErr = true;}
 						?>
 					</li>
 				</ul>
@@ -85,7 +89,7 @@ require('inc/functions.php');
 					<div class="alert alert-warning"><h3>CONGRATULATIONS - You are all ready to get rolling.</h3></div>
 					<p><b>1st things 1st</b> ...</p>
 					<p>let's get the database installed. You will need your database credentials for this step.</p>
-					
+
 					<form>
 					<label for="DB_HOST">Database Host</label>
 					<div class="input-group">
@@ -125,7 +129,7 @@ require('inc/functions.php');
 					</div>
 				</div>
 		    </div>
-		    <div id="TheEnd">
+		    <div id="TheEnd" style="display:none;">
 				<h1>Installation Progress</h1>
 				<div class="progress">
 					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">
@@ -144,7 +148,7 @@ require('inc/functions.php');
 
 <div class="row">
 	<div class="col-lg-3 col-md-3 col-sm-3">
-	
+
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3">
 		<img src="img/SonneSiteSplash.png" class="img-responsive" />
@@ -161,7 +165,7 @@ require('inc/functions.php');
 		</h3>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-3">
-	
+
 	</div>
 </div>
 <div class="row">
@@ -207,19 +211,19 @@ require('inc/functions.php');
 		window.setTimeout(function() {
 			document.getElementById('serverTestWelcome').style.display = "none";
 			document.getElementById('serverTestResults').style.display = "block";
-		}, 10000);				
+		}, 5000);
 		$('#GetSonne').modal();
 	});
-	
+
 	$('#installDatabase').click(function(){
 			$.post('inc/install-database.php',$("form").serialize(), function(data) {
 				document.getElementById('databaseResults').style.display = "block";
 				$('#databaseResults').empty();
-				$('#databaseResults').append(data);
-				if(data == 'SUCCESS'){
+				$('#databaseResults').append('<div class="alert alert-danger">ERROR</div>');				
+				if(data != 'ERROR'){
 					document.getElementById('installProcessWindow').style.display = "none";
 					document.getElementById('configurationWindow').style.display = "block";
-				}
+					$('#configurationWindow').prepend(data);				}
 				console.log(data);
 			});
 	 });
